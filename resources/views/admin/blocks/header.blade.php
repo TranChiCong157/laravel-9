@@ -16,8 +16,11 @@
                   <a class="nav-link" href="{{route('product.list')}}">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('user.list')}}">user</a>
-                  </li>
+                    <a class="nav-link" href="{{route('user.list')}}">User</a>
+                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('login.login')}}">Login</a>
+                </li>
                 
               </ul>
         </div>

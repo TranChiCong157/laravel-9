@@ -16,15 +16,15 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-4">
+                {{-- <div class="col-4">
                     <aside>
                         @section('sidebar')
                         @include('admin.blocks.sidebar')
                         @show
                        
                     </aside>
-                </div>
-                <div class="col-8">
+                </div> --}}
+                <div class="col-12">
                     <div class="content">
                         @yield('content')
                     </div>

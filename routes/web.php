@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
@@ -25,8 +26,13 @@ Route::get('/product', [ProductController::class, 'index'])->name('product');
 
 // // Route::get('/add-product', [ProductController::class, 'getAdd']);
 // // Route::post('/add-product', [ProductController::class, 'postAdd']); 
+Route::prefix('login')->name('login.')->group(function() {
+    Route::get('/', [LoginController::class, 'login'])->name('login');
+    
+});
 
 Route::prefix('user')->name('user.')->group(function () {
+    
     Route::get('/', [UserController::class, 'index'])->name('list');
     Route::get('/add', [UserController::class, 'addUser'])->name('add');
     Route::post('/add', [UserController::class, 'postAdd'])->name('post-add');
