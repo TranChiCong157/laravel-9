@@ -20,16 +20,16 @@ use App\Http\Controllers\UserController;
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/product', [ProductController::class, 'index'])->name('product');
-// Route::get('/user', [UserController::class, 'index'])->name('user');
+// Phần login + register
 
-
-// // Route::get('/add-product', [ProductController::class, 'getAdd']);
-// // Route::post('/add-product', [ProductController::class, 'postAdd']); 
 Route::prefix('login')->name('login.')->group(function() {
     Route::get('/', [LoginController::class, 'login'])->name('login');
+    Route::get('/register', [LoginController::class, 'register'])->name('register');
+    
     
 });
+
+//Phần user_admin
 
 Route::prefix('user')->name('user.')->group(function () {
     
@@ -43,10 +43,13 @@ Route::prefix('user')->name('user.')->group(function () {
 
 });
 
+//phần sản phẩm
+
 
 Route::prefix('product')->name('product.')->group(function(){
     Route::get('/',[ProductController::class,'index'])->name('list');
     Route::get('/add', [ProductController::class, 'addProduct'])->name('add');
-
-
+    Route::post('/add', [ProductController::class, 'postAdd'])->name('post-add');
 });
+
+//Phần danh mục

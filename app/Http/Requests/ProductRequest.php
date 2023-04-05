@@ -26,7 +26,8 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required|min:6',
-            'price' => 'required|integer'
+            'price' => 'required|integer',
+            'quantity' => 'required|integer'
         ];
     }
         public function messages(){
@@ -40,15 +41,19 @@ class ProductRequest extends FormRequest
         'name.required' => 'Truong :attribute bat buoc phai nhap',
         'name.min' => 'Truong :attribute bat buoc phai nhap lon hon :min ki tu',
         'price.required' => 'Truong :attribute bat buoc phai nhap',
-        'price.integer' => 'Truong :attribute bat buoc phai nhap la so'
+        'price.integer' => 'Truong :attribute bat buoc phai nhap la so',
+        'quantity.required' => 'Truong :attribute bat buoc phai nhap',
+        'quantity.integer' => 'Truong :attribute bat buoc phai nhap la so'
             ];
         }
 
         public function attributes()
         {
             return [
-                'name' => ' Ten san pham',
-                'price' => 'gia san pham'
+                'name' => ' Tên sản phẩm',
+                'price' => 'Giá sản phẩm',
+                'quantity'=> 'Số lượng sản phẩm'
+
             ];
         }
     

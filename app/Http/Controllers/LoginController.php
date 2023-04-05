@@ -16,4 +16,12 @@ class LoginController extends Controller
 
 
     }
+
+    public function register(){
+
+        $this->title['title'] = 'register';
+
+        return view('admin.register', $this->title);
+        
+    }
 }

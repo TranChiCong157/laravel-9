@@ -116,4 +116,11 @@ class Products extends Model
         // dd($sql);
         return DB::table('products')->get();
     }
+
+    // public function addProduct(){
+    //     return DB::table('products')
+    //     ->insert(
+
+    //     )
+    // }
 }

@@ -20,6 +20,20 @@
                 <span style="color :red"> {{$message}}</span>
             @enderror
         </div>
+        <div class="mb-3">
+            <label for="">Giá</label>
+            <input type="text" class="form-control" name="name" placeholder="Nhập giá sản phẩm..." value="{{old('price')}}">
+            @error('name')
+                <span style="color :red"> {{$message}}</span>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label for="">Số lượng</label>
+            <input type="text" class="form-control" name="name" placeholder="Nhập số lượng sản phẩm..." value="{{old('quantity')}}">
+            @error('name')
+                <span style="color :red"> {{$message}}</span>
+            @enderror
+        </div>
 
         <button type="submit" class="btn btn-primary">Thêm thành viên</button>
         <a href="{{route('product.list')}}" class="btn btn-warning">Quay lại</a>
