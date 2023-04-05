@@ -53,3 +53,9 @@ Route::prefix('product')->name('product.')->group(function(){
 });
 
 //Phần danh mục
+
+Route::prefix('categories')->name('categories.')->group( function (){
+    Route::get('/',[CategoriesController::class, 'index'])->name('list');
+    Route::get('/add',[CategoriesController::class, 'addCategories'])->name('add');
+
+});
