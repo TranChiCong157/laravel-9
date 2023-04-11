@@ -63,4 +63,58 @@ class ProductController extends Controller
     //    $request->validate($rules, $messages);
       
     }
+
+    public function getId(Request $request, $id){
+
+        $title = 'Cập nhật người dùng';
+
+        if(!empty($id)){
+
+            $productId = $this->products->getId($id);
+
+            // dd($productId);
+            if(!empty($productId[0])){
+                $request->session()->put('id',$id);
+                $productId = $productId[0];
+            }else{
+                return redirect()->route('product.list')->with('msg','Người dùng không còn tồn tại');
+            }
+
+        }else{
+            return redirect()->route('product.list')->with('msg','Người dùng không còn tồn tại');
+
+        }
+        
+        return view('admin.products.edit',compact('title', 'productId')); 
+    }
+
+    public function postEdit(ProductRequest $request, $id){
+
+
+        $id = session('id');
+        if(empty($id)){
+            return back()->with('msg', 'Liên kết không tồn tại');
+        }
+        $update = [
+            $request->name,
+            $request->price,
+            $request->quantity
+            // $request->address,
+            // $request->phone,
+            // date('Y-m-d')
+        ];
+
+        $this->products->updateProduct($update,$id);
+        return redirect()->route('product.list')->with('msg', 'Cập nhật sản phẩm thành công');
+
+
+    }
+
+    public function delete($id=0){
+
+        $this->products->deleteProduct($id);
+        return redirect()->route('product.list')->with('msg', 'Xoá sản phẩm thành công');
+    }
+
+
 }

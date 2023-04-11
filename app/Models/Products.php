@@ -9,7 +9,7 @@ use Termwind\Components\Raw;
 
 class Products extends Model
 {
-    public $products;
+    public $table = 'products';
 
     public function getAll(){
         // $id = 5;
@@ -121,4 +121,23 @@ class Products extends Model
         return DB::table('products')
         ->insert($insert);
     }
+
+    public function getId($id){
+
+        return DB::select('select * from '.$this->table.' where id = ?',[$id]);
+    }
+
+    public function updateProduct($data,$id){
+        
+        $data[] = $id;
+        return DB::update('update '.$this->table.' set name=?, price=?, quantity=?  where id = ?', $data);
+    }
+
+    public function deleteProduct($id){
+
+        return DB::delete('DELETE FROM '.$this->table.' WHERE id = ?', [$id]);
+       
+    }
+
+
 }

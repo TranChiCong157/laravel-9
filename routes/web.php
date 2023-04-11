@@ -50,6 +50,9 @@ Route::prefix('product')->name('product.')->group(function(){
     Route::get('/',[ProductController::class,'index'])->name('list');
     Route::get('/add', [ProductController::class, 'addProduct'])->name('add');
     Route::post('/add', [ProductController::class, 'postAdd'])->name('post-add');
+    Route::get('/edit/{id}', [ProductController::class, 'getId'])->name('edit');
+    Route::post('/edit/{id}', [ProductController::class, 'postEdit'])->name('post-edit');
+    Route::get('/delete/{id}',[ProductController::class, 'delete'])->name('delete');
 });
 
 //Phần danh mục
