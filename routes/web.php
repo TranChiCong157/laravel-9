@@ -57,5 +57,6 @@ Route::prefix('product')->name('product.')->group(function(){
 Route::prefix('categories')->name('categories.')->group( function (){
     Route::get('/',[CategoriesController::class, 'index'])->name('list');
     Route::get('/add',[CategoriesController::class, 'addCategories'])->name('add');
+    Route::post('/add',[CategoriesController::class, 'postAdd'])->name('post-add');
 
 });

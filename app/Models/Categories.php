@@ -13,7 +13,13 @@ class Categories extends Model
 
     public function getAll(){
         
-         return DB::table('categories')->get();
+         return DB::table($this->table)->get();
        
+    }
+
+    public function addCategories($insert){
+        
+        return DB::table('categories')
+        ->insert($insert);
     }
 }

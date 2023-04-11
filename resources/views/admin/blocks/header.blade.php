@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{route('user.list')}}">User</a>
                  </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('login.login')}}">Login</a>
+                    <a class="nav-link" href="{{route('login.login')}}">Login/Register</a>
                 </li>
                 
               </ul>
