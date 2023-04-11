@@ -36,7 +36,14 @@ class ProductController extends Controller
 
     public function postAdd(ProductRequest $request){
 
-
+        $insert = 
+        [
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantity' => $request->quantity
+        ];
+      $this->products->addProduct($insert);
+     return redirect()->route('product.list')->with('msg','Thêm thành công');
       
         // dd($request);
         // return redirect()->route('product')->with('msg','Thanh cong');

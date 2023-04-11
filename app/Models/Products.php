@@ -112,15 +112,13 @@ class Products extends Model
         //     DB::raw(' `name` as tensp , `price` , `quantity`')
         // )
         // ->get();
-        // $sql = DB::getQueryLog();
+       
         // dd($sql);
         return DB::table('products')->get();
     }
 
-    // public function addProduct(){
-    //     return DB::table('products')
-    //     ->insert(
-
-    //     )
-    // }
+    public function addProduct($insert){
+        return DB::table('products')
+        ->insert($insert);
+    }
 }

@@ -19,7 +19,28 @@ class Categories extends Model
 
     public function addCategories($insert){
         
-        return DB::table('categories')
+        return DB::table($this->table)
         ->insert($insert);
+    }
+
+    public function getId($id){
+
+        return DB::select('select * from '.$this->table.' where id = ?',[$id]);
+        // return DB::table($this->table)
+        // ->where('id', '=',$id);
+
+    
+    }
+
+    public function updateCate($data,$id){
+        return DB::table($this->table)
+        ->where('id','=', $id)
+        ->update($data);
+    }
+
+    public function deleteCategories($id){
+
+        return DB::delete('DELETE FROM '.$this->table.' WHERE id = ?', [$id]);
+       
     }
 }
